@@ -7,10 +7,11 @@ public class Main {
         RetryLibTwo retryLibTwo = new RetryLibTwo();
         RetryLibThree retryLibThree = new RetryLibThree();
 
-        System.out.println("Each test makes five attempts with 'true' indicating a success'");
+        int send = 5;
+        System.out.println("Each test makes " + send + " attempts with 'true' indicating a success'");
 
         System.out.println("\ntry random fail\n-");
-        int send = 5;
+
         int count = 0;
         boolean success = false;
         for (int i = 1; i <= send; i++) {
@@ -63,4 +64,5 @@ public class Main {
         }
         System.out.println("\n-\nsuccess ratio:" + count + "/" + send + "\n");
     }
+
 }
