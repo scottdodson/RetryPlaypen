@@ -3,7 +3,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class SimulateFailure {
     long failTime = 0;
-    long sleepTime = 750;
+    long sleepTime = 250;
 
     public boolean failRandom() throws IllegalAccessException {
         int max =  100;

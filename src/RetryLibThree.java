@@ -13,7 +13,7 @@ public class RetryLibThree implements retryInterface {
                 break;
             } catch (IllegalAccessException | InterruptedException e) {
                 retryCount++;
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.MILLISECONDS.sleep(200);
                 System.out.print("\r running " + spinner.charAt(retryCount % spinner.length()));
                 //System.out.print("caught: " + retryCount + ", ");
                 if (retryCount >= retryLimit) {
