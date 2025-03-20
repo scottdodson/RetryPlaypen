@@ -3,7 +3,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class SimulateFailure {
     long failTime = 0;
-    long sleepTime = 5000;
+    long sleepTime = 750;
 
     public boolean failRandom() throws IllegalAccessException {
         int max =  100;
@@ -22,7 +22,7 @@ public class SimulateFailure {
         int min = 1;
         int threshold = 50;
         if (System.currentTimeMillis() < failTime) {
-            System.out.println("Fail during outage");
+            //System.out.println("Fail during outage");
             throw new IllegalAccessException();
         }
         int random = ThreadLocalRandom.current().nextInt(min, max);

@@ -19,9 +19,9 @@ public class RetryLib implements retryInterface {
                 break;
             } catch (IllegalAccessException e) {
                 retryCount++;
-                System.out.print("caught: " + retryCount + ", ");
+                //System.out.print("caught: " + retryCount + ", ");
                 if (retryCount >= retryLimit) {
-                    System.out.print("retry failed, ");
+                    //System.out.print("retry failed, ");
                     break;
                 }
             }

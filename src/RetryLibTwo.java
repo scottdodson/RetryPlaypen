@@ -7,14 +7,13 @@ public class RetryLibTwo implements retryInterface {
         int retryLimit = 5;
         while (true) {
             try {
-                // System.out.println(failureSim.failRandom());
                 result = failureSim.sleepRandom();
                 break;
             } catch (IllegalAccessException | InterruptedException e) {
                 retryCount++;
-                System.out.print("caught: " + retryCount + ", ");
+                //System.out.print("caught: " + retryCount + ", ");
                 if (retryCount >= retryLimit) {
-                    System.out.print("retry failed, ");
+                    //System.out.println("retry failed, ");
                     break;
                 }
             }
