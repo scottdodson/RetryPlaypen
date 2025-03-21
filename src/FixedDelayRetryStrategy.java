@@ -20,5 +20,3 @@ class FixedDelayRetryStrategy implements RetryStrategy {
         return delay;
     }
 }
-
-

@@ -4,8 +4,6 @@ public class Connect {
     private final RetryStrategy retryStrategy;
     private final SimulateFailure simFault = new SimulateFailure();
 
-
-
     public Connect(RetryStrategy retryStrategy) {
         this.retryStrategy = retryStrategy;
     }
@@ -42,7 +40,4 @@ public class Connect {
         }
 
     }
-
-
-
 }

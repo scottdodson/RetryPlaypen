@@ -11,9 +11,5 @@ public class Main {
         Connect fixedDelayConnection = new Connect(fixedDelay);
         fixedDelayConnection.connectWithDelay();
 
-
-
     }
-
-
 }
