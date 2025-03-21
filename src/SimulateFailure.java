@@ -5,7 +5,7 @@ public class SimulateFailure {
     long failTime = 0;
     long sleepTime = 250;
 
-    public boolean failRandom() throws IllegalAccessException {
+    public static boolean failRandom() throws IllegalAccessException {
         int max =  100;
         int min = 1;
         int threshold = 50;

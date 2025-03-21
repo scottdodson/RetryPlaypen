@@ -1,14 +1,48 @@
-import java.lang.reflect.Method;
+import java.io.IOException;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
-public class RetryStrategy {
+interface RetryStrategy {
+    boolean retry(int attempt, Exception e);
+    long getDelay(int attempt);
+}
 
-    public void tryStrategy(String message) {
-        System.out.println(message);
+class SimpleRetryStrategy implements RetryStrategy {
+    private int retryCount = 5;
+
+    public  SimpleRetryStrategy(int retryCount) {
+        this.retryCount = retryCount;
     }
 
-    public void method2(Object object, Method method, String message) throws Exception {
-        Object[] parameters = new Object[1];
-        parameters[0] = message;
-        method.invoke(object, parameters);
+    @Override
+    public boolean retry(int attempt, Exception e) {
+        return attempt <= retryCount;
+    }
+
+    @Override
+    public long getDelay(int attempt) {
+        return 0;
     }
 }
+
+class fixedDelayRetryStrategy implements RetryStrategy {
+    private int retryCount = 5;
+    private long delay = 0;
+
+    public fixedDelayRetryStrategy(int retryCount, long delay) {
+        this.retryCount = retryCount;
+        this.delay = delay;
+    }
+
+    @Override
+    public boolean retry(int attempt, Exception e) {
+        return retryCount < attempt;
+    }
+
+    @Override
+    public long getDelay(int attempt) {
+        return delay;
+    }
+}
+
+

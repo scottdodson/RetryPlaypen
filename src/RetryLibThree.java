@@ -15,9 +15,9 @@ public class RetryLibThree implements retryInterface {
                 retryCount++;
                 TimeUnit.MILLISECONDS.sleep(200);
                 System.out.print("\r running " + spinner.charAt(retryCount % spinner.length()));
-                //System.out.print("caught: " + retryCount + ", ");
+                System.out.print("caught: " + retryCount + ", ");
                 if (retryCount >= retryLimit) {
-                    //System.out.print("retry failed, ");
+                    System.out.print("retry failed, ");
                     break;
                 }
             }
