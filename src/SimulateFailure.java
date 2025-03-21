@@ -9,7 +9,7 @@ public class SimulateFailure {
 
     }
 
-    public static boolean failRandom() throws IllegalAccessException {
+    public boolean failRandom() throws IllegalAccessException {
         int max =  100;
         int min = 1;
         int threshold = 50;
@@ -25,6 +25,7 @@ public class SimulateFailure {
         int max =  100;
         int min = 1;
         int threshold = 50;
+
         if (System.currentTimeMillis() < failTime) {
             //System.out.println("Fail during outage");
             throw new IllegalAccessException();

@@ -5,6 +5,9 @@ class SimpleRetryStrategy implements RetryStrategy {
         this.retryCount = retryCount;
     }
 
+    public  SimpleRetryStrategy() {
+    }
+
     @Override
     public boolean retry(int attempt, Exception e) {
         return attempt < retryCount;
