@@ -11,6 +11,7 @@ public class Connect {
     public void connectRandomFail() throws IllegalAccessException, InterruptedException {
         int attempts = 0;
         while (retryStrategy.retry(attempts, null)) {
+            attempts++;
             try {
                 boolean success = simFault.failRandom();
                 if (success) {
@@ -18,15 +19,19 @@ public class Connect {
                     break;
                 }
             } catch (IllegalAccessException e) {
-                System.out.print("fail ");
+                if (retryStrategy.retry(attempts, null)) {
+                    System.out.print("fail ");
+                } else {
+                    System.out.println("failed");
+                }
             }
-            attempts++;
         }
     }
 
     public void connectWithDelay() throws IllegalAccessException, InterruptedException {
         int attempts = 0;
         while (retryStrategy.retry(attempts, null)) {
+            attempts++;
             try {
                 boolean success = simFault.sleepRandom();
                 if (success) {
@@ -34,9 +39,13 @@ public class Connect {
                     break;
                 }
             } catch (IllegalAccessException e) {
-                System.out.print("fail ");
+                if (retryStrategy.retry(attempts, null)) {
+                    System.out.print("fail ");
+                } else {
+                    System.out.println("failed");
+                }
             }
-            attempts++;
+
         }
 
     }
